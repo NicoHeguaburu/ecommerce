@@ -1,23 +1,22 @@
-import logo from '../../logo.svg';
 import './NavBar.css';
+import Menu from '../Menu/Menu';
+import Marca from '../Marca/Marca';
+import Lupa from '../Lupa/Lupa';
+import Carrito from '../Carrito/Carrito';
 
 const NavBar = () => {
     return(
-        <div className="navbar-container">
-            <div>
-                <img scr={logo} className="logo"/>
-            </div>
-            <div>
-                <ul className="list">
-                    <li><a className="list-item" href="#">Home</a></li>
-                    <li><a className="list-item" href="#">About</a></li>
-                    <li><a className="list-item" href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <a className="login">Login</a>
+    <nav className="nav-container">
+        <Menu/>
+        <Marca/>
+        <div className="right-container">
+            <div className="triangulo"></div>
+            <div className="icon-container">
+            <Lupa/>
+            <Carrito/>
             </div>
         </div>
+    </nav>
     );
 };
 
