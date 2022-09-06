@@ -1,11 +1,10 @@
-import './ListItems.css';
+import './ItemCount.css';
 
 import React,{useState} from 'react';
 
-const ListItems = () => {
-    const [cantidad, setCantidad] = useState(1);
+const ItemCount = ({ stock, initial, onAdd}) => {
 
-    const stock = 10;
+    const [cantidad, setCantidad] = useState(initial);
 
     const reducir = () => {
         setCantidad(cantidad - 1);
@@ -14,6 +13,7 @@ const ListItems = () => {
     const aumentar = () => {
         setCantidad(cantidad + 1);
     }
+
 
     return (
         <div className="contador">
@@ -24,10 +24,10 @@ const ListItems = () => {
             <button disabled={cantidad >= stock} onClick={aumentar}>+</button>
             </div>
             <div>
-                <button>Agregar al carrito</button>
+                <button onClick={onAdd}>Agregar al carrito</button>
             </div>
         </div>
     );
 };
 
-export default ListItems;
+export default ItemCount;

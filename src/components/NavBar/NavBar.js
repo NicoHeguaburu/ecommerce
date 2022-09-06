@@ -1,19 +1,16 @@
 import './NavBar.css';
-import Menu from '../Menu/Menu';
-import Marca from '../Marca/Marca';
-import Lupa from '../Lupa/Lupa';
-import Carrito from '../Carrito/Carrito';
+import CartWidget from '../CartWidget/CartWidget';
 
 const NavBar = () => {
     return(
     <nav className="nav-container">
-        <Menu/>
-        <Marca/>
+        <i className="menu bi bi-list"></i>
+        <h3 className='name-store'>NOMBRE DE LA TIENDA</h3>
         <div className="right-container">
             <div className="triangulo"></div>
             <div className="icon-container">
-            <Lupa/>
-            <Carrito/>
+            <i className="carrito bi bi-search"></i>
+            <CartWidget/>
             </div>
         </div>
     </nav>

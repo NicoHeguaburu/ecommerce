@@ -32,3 +32,14 @@
     align-items: center;
     width: 100%;
 }
+
+.name-store {
+color: white
+;}
+
+.menu {
+    color: white;
+    font-size: 35px;
+    margin-left: 5%;
+}
+
