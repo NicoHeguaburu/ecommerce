@@ -1,17 +1,11 @@
 import React from "react";
-import './Item.css';
+import './ItemDetail.css';
 import {useState, useEffect } from "react";
-import ItemCount from '../ItemCount/ItemCount';
 
-const Item = () => {
+const ItemDetail = () => {
     const [items, setItems] = useState([]);
 
-    const onAdd = (cantidad) =>{
-        console.log(`elegiste ${cantidad} productos`)
-    }
-
-
-    const item = () => {
+    const getItem = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() =>{
                 resolve([
@@ -43,7 +37,7 @@ const Item = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const itemList = await item();
+            const itemList = await getItem();
             setItems(itemList);
         };
         fetchData();
@@ -55,13 +49,12 @@ const Item = () => {
             <div key="i.id" className="card-item">
                 <h6>{i.title}</h6>
                 <img src="{i.imgUrl}" alt="" />
+                <p>{i.description}</p>
                 <h6>{i.price}</h6>
-                <ItemCount stock={10} initial={1} onAdd={onAdd} />
-                
             </div>
         ))}
     </div>  
     );
 };
 
-export default Item;
+export default ItemDetail;
