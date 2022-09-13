@@ -1,6 +1,8 @@
 import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
 import logo from '../../1.png'
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return(
@@ -20,14 +22,14 @@ const NavBar = () => {
             </div>
             <div className="nav-bottom-container">
                 <div className="logo-container">
-                    <img src={logo} className="logo"/>
+                <Link to="/"><img src={logo} className="logo"/></Link>
                 </div>
                 <div className="navegation-container">
                     <div>
                         <div className="navegation-grup-top">
-                            <a href="">link1</a>
-                            <a href="">link2</a>
-                            <a href="">link3</a>
+                            <NavLink to="/categoria/categoria1" className={({isActive}) => isActive ? "link-active" : "linkInactive"}>CATEGORIA 1</NavLink>
+                            <NavLink to="/categoria/categoria2" className={({isActive}) => isActive ? "link-active" : "linkInactive"}>CATEGORIA 2</NavLink>
+                            <NavLink to="/categoria/categoria3" className={({isActive}) => isActive ? "link-active" : "linkInactive"}>CATEGORIA 3</NavLink>
                             
                         </div>
                         <div className="navegation-grup-bottom">
