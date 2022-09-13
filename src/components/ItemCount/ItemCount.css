@@ -4,5 +4,17 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: white;
+    color: black;
     }
+
+.contador > h2 {
+    color: black;
+}
+
+button {
+    color: black;
+}
+
+span {
+    color: black;
+}

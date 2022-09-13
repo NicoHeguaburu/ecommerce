@@ -1,16 +1,7 @@
-.card-item{
-    background-color: rgb(5, 5, 41);
-    width: 200px;
-    height: 400px;
-    margin: 70px;
+.item-detail > h2 {
+    color: black;
 }
 
-* {
-    color: white;
-}
-
-.container-cards {
-display: flex;
-justify-content: center;
-flex-direction: row;
+.item-detail > p {
+    color: black;
 }
