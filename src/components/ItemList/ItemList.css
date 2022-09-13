@@ -1,4 +1,6 @@
-.itemList {
-    height: 100px;
-    background-color: blue;
+.item-list {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
 }

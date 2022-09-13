@@ -1,16 +1,5 @@
-.card-item{
-    background-color: rgb(5, 5, 41);
-    width: 200px;
-    height: 400px;
-    margin: 70px;
-}
-
-* {
-    color: white;
-}
-
-.container-cards {
-display: flex;
-justify-content: center;
-flex-direction: row;
+.item {
+    padding: 0px;
+    border: 1px solid gray;
+    margin: 10px;
 }
