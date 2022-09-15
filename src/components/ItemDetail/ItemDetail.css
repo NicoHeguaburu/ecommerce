@@ -5,3 +5,7 @@
 .item-detail > p {
     color: black;
 }
+
+.oculto {
+    display: none;
+}

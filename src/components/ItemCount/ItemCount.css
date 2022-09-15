@@ -18,3 +18,8 @@ button {
 span {
     color: black;
 }
+
+
+.ocultar {
+    display: none;
+}
