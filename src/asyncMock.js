@@ -4,7 +4,7 @@ const data = [
         title: "Nombre1",
         description: "descripcion del producto1",
         price: "$precio1",
-        imgUrl: "Imagen1",
+        imgUrl: "https://theretailer.wp-theme.design/wp-content/uploads/2019/09/5590552827_1_1_1-1-500x640.jpg",
         categoria: "categoria1"
     },
     {
@@ -12,7 +12,7 @@ const data = [
         title: "Nombre2",
         description: "descripcion del producto2",
         price: "$precio2",
-        imgUrl: "Imagen2",
+        imgUrl: "https://theretailer.wp-theme.design/wp-content/uploads/2019/09/5590552827_1_1_1-1-500x640.jpg",
         categoria: "categoria1"
     },
     {
@@ -20,23 +20,23 @@ const data = [
         title: "Nombre3",
         description: "descripcion del producto3",
         price: "$precio3",
-        imgUrl: "Imagen3",
+        imgUrl: "https://theretailer.wp-theme.design/wp-content/uploads/2019/09/5590552827_1_1_1-1-500x640.jpg",
         categoria: "categoria2"
     },
     {
-        id: "3",
+        id: "4",
         title: "Nombre4",
         description: "descripcion del producto4",
         price: "$precio4",
-        imgUrl: "Imagen4",
+        imgUrl: "https://theretailer.wp-theme.design/wp-content/uploads/2019/09/5590552827_1_1_1-1-500x640.jpg",
         categoria: "categoria2"
     },
     {
-        id: "3",
+        id: "5",
         title: "Nombre5",
         description: "descripcion del producto5",
         price: "$precio5",
-        imgUrl: "Imagen5",
+        imgUrl: "https://theretailer.wp-theme.design/wp-content/uploads/2019/09/5590552827_1_1_1-1-500x640.jpg",
         categoria: "categoria3"
     },
     {
@@ -44,7 +44,7 @@ const data = [
         title: "Nombre6",
         description: "descripcion del producto6",
         price: "$precio6",
-        imgUrl: "Imagen6",
+        imgUrl: "https://theretailer.wp-theme.design/wp-content/uploads/2019/09/5590552827_1_1_1-1-500x640.jpg",
         categoria: "categoria3"
     },
 ]

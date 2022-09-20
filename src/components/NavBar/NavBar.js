@@ -39,7 +39,7 @@ const NavBar = () => {
                             <a href="">link4</a>
                         </div> 
                     </div>
-                    <CartWidget/>
+                    <NavLink to="/cart"><CartWidget /></NavLink>
                 </div>
             </div>
         </nav>
@@ -47,8 +47,6 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-
 
 
 {/* <i className="menu bi bi-list"></i>

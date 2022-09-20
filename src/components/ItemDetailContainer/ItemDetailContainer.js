@@ -28,7 +28,7 @@ const {productId} = useParams();
             <ItemDetail
                 title={items.title}
                 description={items.description}
-                pictureUrl={items.pictureUrl}
+                pictureUrl={items.imgUrl}
                 price={items.price}
                 key={items.id}
             />

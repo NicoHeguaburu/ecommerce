@@ -11,7 +11,7 @@ const ItemList = ({itemsList}) => {
                         id={item.id}
                         title={item.title} 
                         description={item.description} 
-                        pictureUrl={item.pictureUrl} 
+                        imgUrl={item.imgUrl} 
                         price={item.price} 
                         key={item.id} 
                     />
