@@ -9,3 +9,9 @@
 .oculto {
     display: none;
 }
+
+
+.imgDetail {
+    height: 200px;
+    width: 150px;
+}

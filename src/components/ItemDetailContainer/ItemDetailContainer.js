@@ -6,14 +6,14 @@ import { useParams } from 'react-router-dom';
 import React from 'react';
 
 const ItemDetailContainer = () => {
-const {productId} = useParams();
 
+    const {productId} = useParams();
     const [items, setItems] = useState([]);
 
     const getItems = new Promise((resolve, reject) => {
         setTimeout(() => {
-            const detalle = data.find(items => items.id === productId);
-            resolve(detalle);
+            const detail = data.find(items => items.id === productId);
+            resolve(detail);
         }, 2000);
     });
 
@@ -28,9 +28,9 @@ const {productId} = useParams();
             <ItemDetail
                 title={items.title}
                 description={items.description}
-                pictureUrl={items.imgUrl}
+                imgUrl={items.imgUrl}
                 price={items.price}
-                key={items.id}
+                id={items.id}
             />
         </div>
     );
