@@ -1,37 +1,45 @@
 import React from 'react';
 import { useState } from 'react';
+import data from '../asyncMock';
 
 export const CartContext = React.createContext();
 
 const CartProvider = ({children}) => {
+
+    
     const [productCartList, setProductCartList] = useState ([])
+
 
     const isInCart = (idProducto) => {
         const duplicatedProduct =   productCartList.some((item) => item.id === idProducto);
         return duplicatedProduct;
     }
 
-    const addItem = (items, cantidad) => {
-        const newProduct = {
-            ...items,
-            cantidad,
-        }
 
-        if(isInCart(items.id)) {
-            const product = productCartList.findIndex(
-                (producto) => producto.id === items.id
-            );
-            const newArray = [...productCartList];
-            newArray[product].cantidad = newArray[product].cantidad + cantidad;
-            newArray[product].price = newArray[product].cantidad * newArray[product].price;
-            setProductCartList(newArray);
-        } else {
-            const newList = [...productCartList];
-            newProduct.price = newProduct.cantidad * newProduct.price;
-            newList.push(newProduct);
-            setProductCartList(newList);
-
-        }
+    const addItem = (id, cantidad) => {
+        data.map(i => {
+            if (i.id === id){
+                const cartItem = {
+                    id: i.id,
+                    title: i.title,
+                    price: i.price,
+                    imgUrl: i.imgUrl,
+                    cantidad: cantidad
+                }
+                
+                if(isInCart(cartItem.id)){
+                    productCartList.map(x => {
+                        if(x.id === cartItem.id){
+                            x.cantidad = cartItem.cantidad + x.cantidad
+                            cartItem.cantidad = x.cantidad
+                            console.log(cartItem)
+                        }
+                    })
+                }else{
+                    setProductCartList([...productCartList, cartItem])
+                }
+            }
+        })
     }
 
     const clearCart = () => {
@@ -39,28 +47,29 @@ const CartProvider = ({children}) => {
     }
 
     const removeItem = (itemId) => {
-        const productsInCart = productCartList.filter(items => items.id !== itemId) 
-        setProductCartList(productsInCart);
+        const removeItem = productCartList.filter(x => x.id !== itemId) 
+        setProductCartList(removeItem);
     }
 
-    const getPrecioTotal = () => {
-        const precioTotal = productCartList.reduce(
-            (acumulador, item) => acumulador + item.price,
-            0
-        );
-        return precioTotal;
-    };
+    const getTotalPrice = () => {
+        // productCartList.map(x => {
+        //     const priceItem = x.price * x.cantidad
+        //     const totalPrice = priceItem + totalPrice
+        //     console.log(totalPrice)
+        // })
+    }
+
 
     const getTotalProducts = () => {
-        const totalProducts = productCartList.reduce(
-            (acumulador, item) => acumulador + item.cantidad,
-            0
-        );
-        return totalProducts;
+        // productCartList.map(x => {
+        //     const totalProducts = x.cantidad + totalProducts
+        // //     console.log(totalProducts)
+        // })
     }
 
+
     return (
-        <CartContext.Provider value={{productCartList, addItem, removeItem, clearCart, getPrecioTotal, getTotalProducts}}>
+        <CartContext.Provider value={{addItem, clearCart, removeItem, getTotalPrice, getTotalProducts, productCartList}}>
             {children}
         </CartContext.Provider>
     )
