@@ -9,16 +9,10 @@ const ItemDetail = ({title, price, description, imgUrl, id}) => {
 
     const {addItem} = useContext(CartContext);
 
-    const [contador, setContador] = useState("-");
-
     const onAdd = (cantidad)=>{
-        setContador(cantidad)
         addItem(id, cantidad)
-    }
-
-    {
-        
-        console.log(imgUrl)
+        console.log(id)
+        console.log(cantidad)
     }
 
 
@@ -35,24 +29,5 @@ const ItemDetail = ({title, price, description, imgUrl, id}) => {
         </div>
     )
     }
-
-
-//     return (
-//         <div className='itemDetail'>
-            
-//             <div className="item-detail">
-//                 <img href={imgUrl}/>
-//                 <h2>{title}</h2>
-//                 <p>{price}</p>
-//                 <p>{description}</p>
-//             </div>
-//             <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
-//             <p>Cantidad: {contador}</p>
-//             <Link to='/cart'><button>Finalizar compra</button></Link>
-
-//         </div>
-//     )
-// }
-
 
 export default ItemDetail;
