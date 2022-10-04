@@ -61,10 +61,11 @@ const CartProvider = ({children}) => {
 
 
     const getTotalProducts = () => {
-        // productCartList.map(x => {
-        //     const totalProducts = x.cantidad + totalProducts
-        // //     console.log(totalProducts)
-        // })
+        let totalProducts = 0
+        productCartList.map(x => {
+            totalProducts = x.cantidad + totalProducts
+        })
+        return totalProducts
     }
 
 

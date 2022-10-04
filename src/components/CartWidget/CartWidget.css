@@ -5,3 +5,12 @@
     border: 1px solid lightgray;
     padding: 0 5px 0 5px;
 }
+
+.cartCount {
+    display: inline;
+    color: black;
+    position: absolute;
+    top: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+}
