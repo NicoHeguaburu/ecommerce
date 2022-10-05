@@ -27,9 +27,9 @@ const NavBar = () => {
                 <div className="navegation-container">
                     <div>
                         <div className="navegation-grup-top">
-                            <NavLink to="/categoria/categoria1" className={({isActive}) => isActive ? "link-active" : "linkInactive"}>CATEGORIA 1</NavLink>
-                            <NavLink to="/categoria/categoria2" className={({isActive}) => isActive ? "link-active" : "linkInactive"}>CATEGORIA 2</NavLink>
-                            <NavLink to="/categoria/categoria3" className={({isActive}) => isActive ? "link-active" : "linkInactive"}>CATEGORIA 3</NavLink>
+                            <NavLink to="/categoria/camisetas" className={({isActive}) => isActive ? "link-active" : "linkInactive"}>CAMISETAS</NavLink>
+                            <NavLink to="/categoria/buzos" className={({isActive}) => isActive ? "link-active" : "linkInactive"}>BUZOS</NavLink>
+                            <NavLink to="/categoria/pantalones" className={({isActive}) => isActive ? "link-active" : "linkInactive"}>PANTALONES</NavLink>
                             
                         </div>
                         <div className="navegation-grup-bottom">

@@ -1,37 +1,41 @@
 import './ItemDetailContainer.css';
-import data from '../../asyncMock';
+import { dataBase } from '../../itemCollection';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import React from 'react';
+import { doc, getDoc } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
 
     const {productId} = useParams();
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState();
 
-    const getItems = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const detail = data.find(items => items.id === productId);
-            resolve(detail);
-        }, 2000);
-    });
+
 
     useEffect(() => {
-        getItems.then((result) => {
-            setItems(result);
-        })
-    }, [productId]);
+        const getData = async() => {
+            const query = doc(dataBase, "items", productId)
+            const response = await getDoc(query)
+            const data = {
+                ...response.data(),
+                id: response.id
+            }
+        }
+        getData()
+    }, [items]);
 
     return (
         <div className='detail'>
+            {!items ? (<h3 className='cargando'>Cargando...</h3>) : (
             <ItemDetail
-                title={items.title}
-                description={items.description}
-                imgUrl={items.imgUrl}
-                price={items.price}
-                id={items.id}
-            />
+            title={items.title}
+            description={items.description}
+            imgUrl={items.imgUrl}
+            price={items.price}
+            id={items.id}
+        />
+            )}            
         </div>
     );
 

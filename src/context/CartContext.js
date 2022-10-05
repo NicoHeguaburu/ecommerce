@@ -52,11 +52,11 @@ const CartProvider = ({children}) => {
     }
 
     const getTotalPrice = () => {
-        // productCartList.map(x => {
-        //     const priceItem = x.price * x.cantidad
-        //     const totalPrice = priceItem + totalPrice
-        //     console.log(totalPrice)
-        // })
+        let totalPrice = 0
+        productCartList.map(x => {
+            totalPrice = x.price + totalPrice
+        })
+        return totalProducts
     }
 
 
