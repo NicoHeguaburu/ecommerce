@@ -33,92 +33,22 @@ const Cart = () => {
 
 
 
-    return (
-        <div>
-            {!orderId ?
-                <div>
-                    <h2 className='carritoElement'>Carrito:</h2>
-                    <div className='cart carritoElement'>
-                        {
-                            productCartList.map((item) => {
-                                return (
-                                    <div className='itemEnCarrito cartGrid' key={item.id}>    
-                                        <p className='cantidad'>{item.quantity}</p>
-                                        <img src={item.pictureUrl} height="50px" className='producto' alt={item.description} />
-                                        <p className='producto'>{item.title}</p>
-                                        <p className='precio'>${item.price}</p>
-                                        <div className='removerButton'>
-                                            <button onClick={()=>removeItem(item.id)} className='remover'>Remover producto</button>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }   
-                    </div>
-                    {
-                        productCartList.length > 0 ?
-                        <div className='total'>
-                            <div className='elementoCentrado'>
-                                <h3 className='carritoElement'>Total: ${getTotalPrice()}</h3>
-                                <button onClick={()=>clearCart()} className='carritoElement'>Vaciar carrito</button>
-                            </div>
-                            <div className='elementoCentrado'>
-                                <form onSubmit={sendOrder}>
-                                    <fieldset> 
-                                        <legend><strong>Enviar pedido:</strong></legend>
-                                        <div>
-                                            <label for="nombre">Nombre:</label>
-                                            <input type="text" name="name" />
-                                        </div>
-                                        <div>
-                                            <label for="nombre">Apellido:</label>
-                                            <input type="text" name="surname" />
-                                        </div>
-                                        <div>
-                                            <label for="email">Email:</label>
-                                            <input type="email" name="email" />
-                                        </div>
-                                        <div>
-                                            <label for="numero">Número de telefono:</label>
-                                            <input type="number" name="number" />
-                                        </div>
-                                        <input type="submit" value="Guardar orden" className="button" /> <input type="reset" value="Borrar" className="button" />
-                                    </fieldset>
-                                </form>
-                            </div>
-                        </div>
-                        :
-                        <div className='elementoCentrado'>
-                            <p className='carritoElement'>El carrito está vacío</p>
-                            <Link to='/' className='carritoElement'><button>Ver productos</button></Link>
-                        </div>
-                    }
+    return(
+        productCartList.length > 0 ? 
+        productCartList.map((item) => {
+            return (
+                <div className='itemEnCarrito'>
+                    <img src={item.imgUrl} className='carritoElement' />
+                    <p className='carritoElement'>{item.cantidad}</p>
+                    <p className='carritoElement'>{item.title}</p>
+                    <p className='carritoElement'>${item.price}</p>
+                    <button onClick={()=>removeItem(item.id)} className='carritoElement'>Remover producto</button>
                 </div>
-                :
-                <h3>Tu orden ha sido registrada!</h3>
-            }
-        </div>
+            )
+        })
+        : 
+        <h3>Carrito VACIO</h3>
     )
 }
 
 export default Cart;
-
-
-
-
-
-
-// productCartList.length > 0 ? 
-// productCartList.map((item) => {
-//     return (
-//         <div className='itemEnCarrito'>
-//             <img src={item.imgUrl} className='carritoElement' />
-//             <p className='carritoElement'>{item.cantidad}</p>
-//             <p className='carritoElement'>{item.title}</p>
-//             <p className='carritoElement'>${item.price}</p>
-//             <button onClick={()=>removeItem(item.id)} className='carritoElement'>Remover producto</button>
-//         </div>
-//     )
-// })
-// : 
-// <h3>Carrito VACIO</h3>
