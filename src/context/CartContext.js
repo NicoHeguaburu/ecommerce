@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import data from '../asyncMock';
+
 
 export const CartContext = React.createContext();
 
@@ -16,30 +16,28 @@ const CartProvider = ({children}) => {
     }
 
 
-    const addItem = (id, cantidad) => {
-        data.map(i => {
-            if (i.id === id){
-                const cartItem = {
-                    id: i.id,
-                    title: i.title,
-                    price: i.price,
-                    imgUrl: i.imgUrl,
-                    cantidad: cantidad
+    const addItem = (id, title, price, imgUrl, cantidad) => {
+        const cartItem = {
+            id: id,
+            title: title,
+            price: price,
+            imgUrl: imgUrl,
+            cantidad: cantidad
+        }
+        
+        if(isInCart(cartItem.id)){
+            productCartList.map(x => {
+                if(x.id === cartItem.id){
+                    x.cantidad = cartItem.cantidad + x.cantidad
+                    cartItem.cantidad = x.cantidad
+                    console.log(productCartList)
                 }
-                
-                if(isInCart(cartItem.id)){
-                    productCartList.map(x => {
-                        if(x.id === cartItem.id){
-                            x.cantidad = cartItem.cantidad + x.cantidad
-                            cartItem.cantidad = x.cantidad
-                            console.log(cartItem)
-                        }
-                    })
-                }else{
-                    setProductCartList([...productCartList, cartItem])
-                }
-            }
-        })
+            })
+        }else{
+            setProductCartList([...productCartList, cartItem])
+            console.log(productCartList)
+        }
+
     }
 
     const clearCart = () => {
@@ -56,7 +54,7 @@ const CartProvider = ({children}) => {
         productCartList.map(x => {
             totalPrice = x.price + totalPrice
         })
-        return totalProducts
+        return totalPrice
     }
 
 

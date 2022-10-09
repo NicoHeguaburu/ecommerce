@@ -21,18 +21,19 @@ const ItemDetailContainer = () => {
                 ...response.data(),
                 id: response.id
             }
+            setItems(data)
         }
         getData()
-    }, [items]);
+    }, [productId]);
 
     return (
         <div className='detail'>
             {!items ? (<h3 className='cargando'>Cargando...</h3>) : (
             <ItemDetail
             title={items.title}
+            price={items.price}
             description={items.description}
             imgUrl={items.imgUrl}
-            price={items.price}
             id={items.id}
         />
             )}            
