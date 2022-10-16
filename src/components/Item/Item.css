@@ -1,10 +1,25 @@
 .item {
-    padding: 0px;
-    border: 1px solid gray;
-    margin: 10px;
+    margin: 30px;
+    background-color: orangered;
+    padding: 7px;
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
 }
 
 .img {
     width: 250px;
-    height: auto;
+    height: 300px;
+}
+
+.itemDescription {
+    width: 200px;
+    margin: auto;
+    margin-bottom: 7px;
+}
+
+.itemPrice {
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
 }
